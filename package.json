@@ -1,0 +1,33 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "url shortener",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app",
+    "dev": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KananIslamzada/Url-shortener.git"
+  },
+  "keywords": [
+    "url",
+    "url-shortener",
+    "shortener",
+    "shortening"
+  ],
+  "author": "Kanan Islamzada",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KananIslamzada/Url-shortener/issues"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.18"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "joi": "^17.6.0"
+  },
+  "homepage": "https://github.com/KananIslamzada/Url-shortener#readme"
+}
