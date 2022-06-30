@@ -84,11 +84,10 @@ app.post("/api/shorten", async (req, res) => {
     res.status(200).send(db)
 })
 
+// !! Delete shortened url with id
 app.delete("/api/delete/:urlId", async (req, res) => {
     if (!req.params.urlId) return res.status(400).json("Url id is required!");
-    console.log(req.params.urlId)
     const findedUrl = await db.urls.find(url => url.id === parseInt(req.params.urlId))
-    console.log(findedUrl)
     if (!findedUrl) return res.status(404).json(`The link with id ${req.params.urlId} was not found!`);
     db.totalVisitCount -= findedUrl.visitCount;
     db.urls = await db.urls.filter(url => url.id !== findedUrl.id);
@@ -96,6 +95,7 @@ app.delete("/api/delete/:urlId", async (req, res) => {
     res.status(200).send(db)
 })
 
+// !! Port
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`Listening on port ${port} ...`))
