@@ -1,7 +1,7 @@
 const express = require('express');
 const Joi = require('joi');
 const app = express();
-const router = express.Router();
+
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
