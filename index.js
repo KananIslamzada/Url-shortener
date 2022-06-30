@@ -64,7 +64,8 @@ app.get("/:code", async (req, res) => {
 // !! Shorten url
 app.post("/api/shorten", async (req, res) => {
     const schema = Joi.object({
-        url: Joi.string().uri().required()
+        url: Joi.string().uri().required(),
+        description: Joi.string()
     })
     const { error } = schema.validate(req.body);
     if (error) return res.status(404).send(error);
@@ -76,6 +77,7 @@ app.post("/api/shorten", async (req, res) => {
         id: urlsCount + 1,
         mainUrl: requestUrl,
         shortenedUrl: generatedUrl,
+        description: req.body.description || "",
         visitCount: 0
     };
     urlsCount++
